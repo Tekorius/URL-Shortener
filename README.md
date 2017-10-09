@@ -99,14 +99,15 @@ be stuck with `php bin/console`, yuck.
 ./c d:s:c
 ```
 
-### 5. Install frontend stuff
+### 5. Install and build frontend stuff
 
 I opted to use Symfony's suggested way of using [Encore][8] with Webpack.
 
-You should install yarn dependencies:
+You should install yarn dependencies and build the frontend:
 
 ```text
 yarn install
+yarn run encore dev
 ```
 
 [8]: https://symfony.com/doc/current/frontend/encore/simple-example.html
