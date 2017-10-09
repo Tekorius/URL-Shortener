@@ -1,0 +1,18 @@
+{% extends 'public.html.twig' %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Your URL has been shortened</h2>
+
+                    <input type="text"
+                           class="form-control form-control-lg"
+                           value="https://ryt.is/{{ url.short }}"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
