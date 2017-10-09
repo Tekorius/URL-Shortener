@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="ryt.is - An open source link shortener">
+        <meta name="author" content="Rytis Tekorius">
+        <meta name="keyword" content="URL Shortener,Short URL,minify">
+
+        <title>{% block title %}ryt.is - Shorten your URL{% endblock %}</title>
+
+        {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/style.css') }}">
+        {% endblock %}
+    </head>
+    <body class="{% block body_class %}app{% endblock %}">
+        {% block body %}
+            <div class="app-body">
+                {% block main %}
+                    <main class="main">
+                        <div class="container-fluid" style="margin-top: 1.5rem">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </main>
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('build/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class %}{{ parent() }} app-header-fixed{% endblock %}
+{% block body %}
+    {% include 'components/navbar.html.twig' %}
+    {{ parent() }}
+{% endblock %}

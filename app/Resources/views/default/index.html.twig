@@ -1,0 +1,44 @@
+{% extends 'public.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3 col-md-2 col-sm-2 xs-hidden"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+            <div class="card">
+                <h1 class="card-header" style="font-weight: 400; line-height: normal; font-size: 1em">
+                    Shorten your URL
+                </h1>
+                <div class="card-body">
+                    {# URL Shortener #}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="url" class="form-control" placeholder="Enter URL to shorten">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">Shorten!</button>
+                            </span>
+                        </div>
+                    </div>
+
+                    {# Social Links #}
+                    <ul class="social-links-big">
+                        <li>
+                            <a href="https://github.com/Tekorius/URL-Shortener"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/rytistekorius/"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+
+                    {# Description #}
+                    <h2 class="text-center" style="font-size: 1.3em">What is this?</h2>
+
+                    <p>
+                        ryt.is URL shortener is an open source project developed by
+                        <a href="https://tekorius.com" target="_blank">Rytis Tekorius</a> and based on Symfony 3.4 framework.
+                    </p>
+                    <p>Nothing too fancy here (yet), just paste your URL and receive a short URL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
