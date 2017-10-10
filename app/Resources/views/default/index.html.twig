@@ -2,10 +2,10 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-3 col-md-2 col-sm-2 hidden-sm"></div>
+        <div class="col-xl-4 col-lg-3 col-md-2 hidden-md"></div>
 
         {# Middle column #}
-        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+        <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 col-12">
             <div class="card">
                 <h1 class="card-header" style="font-weight: 400; line-height: normal; font-size: 1em">
                     Shorten your URL
@@ -35,10 +35,10 @@
                     {# Social Links #}
                     <ul class="social-links-big">
                         <li>
-                            <a href="https://github.com/Tekorius/URL-Shortener"><i class="fa fa-github"></i></a>
+                            <a href="https://github.com/Tekorius/URL-Shortener" target="_blank"><i class="fa fa-github"></i></a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/rytistekorius/"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/in/rytistekorius/" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
 
@@ -56,22 +56,35 @@
         </div>
 
         {# Right column #}
-        <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12">
-            {# Click stats #}
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="mb-0">{{ total_clicks | number_format }}</h4>
-                    <p class="mb-0">Clicks</p>
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-4">
+            <div class="row">
+                {# Click stats #}
+                <div class="col-sm-12 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-0">{{ total_clicks | number_format }}</h4>
+                            <p class="mb-0">Clicks</p>
+                        </div>
+                    </div>
+                </div>
+
+                {# URL stats #}
+                <div class="col-sm-12 col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-0">{{ total_urls | number_format }}</h4>
+                            <p class="mb-0">URLs shortened</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {# URL stats #}
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="mb-0">{{ total_urls | number_format }}</h4>
-                    <p class="mb-0">URLs shortened</p>
-                </div>
-            </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('build/default/index.js') }}"></script>
 {% endblock %}

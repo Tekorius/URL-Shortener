@@ -15,6 +15,7 @@ Encore
 
     // Will output as web/build/app.js
     .addEntry('app', './assets/js/app.js')
+    .addEntry('default/index', './app/Resources/views/default/index.js')
 
     // Will output as web/build/style.css
     .addStyleEntry('style', './assets/scss/style.scss')
