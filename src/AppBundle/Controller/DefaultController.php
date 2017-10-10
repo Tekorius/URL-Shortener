@@ -43,6 +43,8 @@ class DefaultController extends Controller
 
         return $this->render('default/index.html.twig', [
             'form' => $form->createView(),
+            'total_urls' => $em->getRepository('AppBundle:Url')->countTotalUrls(),
+            'total_clicks' => $em->getRepository('AppBundle:Click')->countTotalClicks(),
         ]);
     }
 

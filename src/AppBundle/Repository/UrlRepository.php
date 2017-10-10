@@ -27,4 +27,17 @@ class UrlRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    /**
+     * Get total URLs throughout the system
+     *
+     * @return int
+     */
+    public function countTotalUrls()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('COUNT(1)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

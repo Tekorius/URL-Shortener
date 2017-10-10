@@ -1,7 +1,10 @@
 {% extends 'public.html.twig' %}
 
 {% block content %}
-    <div class="row justify-content-center">
+    <div class="row">
+        <div class="col-lg-3 col-md-2 col-sm-2 hidden-sm"></div>
+
+        {# Middle column #}
         <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
             <div class="card">
                 <h1 class="card-header" style="font-weight: 400; line-height: normal; font-size: 1em">
@@ -47,6 +50,26 @@
                         <a href="https://tekorius.com" target="_blank">Rytis Tekorius</a> and based on Symfony 3.4 framework.
                     </p>
                     <p>Nothing too fancy here (yet), just paste your URL and receive a short URL</p>
+                </div>
+            </div>
+
+        </div>
+
+        {# Right column #}
+        <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12">
+            {# Click stats #}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-0">{{ total_clicks | number_format }}</h4>
+                    <p class="mb-0">Clicks</p>
+                </div>
+            </div>
+
+            {# URL stats #}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-0">{{ total_urls | number_format }}</h4>
+                    <p class="mb-0">URLs shortened</p>
                 </div>
             </div>
         </div>

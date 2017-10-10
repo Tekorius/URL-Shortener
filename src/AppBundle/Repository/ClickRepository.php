@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class ClickRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Get total clicks of Urls throughout the system
+     *
+     * @return int
+     */
+    public function countTotalClicks()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('COUNT(1)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }
