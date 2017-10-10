@@ -50,6 +50,11 @@ class Click
     private $url;
 
 
+    public function __construct()
+    {
+        $this->clickedOn = new \DateTime();
+    }
+
     /**
      * Get id
      *

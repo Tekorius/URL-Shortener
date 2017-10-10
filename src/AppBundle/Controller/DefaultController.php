@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Url;
 use AppBundle\Form\UrlForm;
+use AppBundle\Service\ClickService;
 use AppBundle\Service\UrlService;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
+     * This is the default landing page
+     *
      * @Route("/", name="homepage")
      */
     public function indexAction(
@@ -44,6 +47,8 @@ class DefaultController extends Controller
     }
 
     /**
+     * Url edit page
+     *
      * @Route("/edit/{url}/{token}", name="edit")
      *
      * @ParamConverter(name="url", options={"repository_method"="getByShortUrl"})
@@ -60,13 +65,21 @@ class DefaultController extends Controller
     }
 
     /**
+     * Actual URL page which follows the link
+     *
      * @Route("/{url}", name="redirect")
      *
      * @ParamConverter(name="url", options={"repository_method"="getByShortUrl"})
      */
-    public function redirectAction(Url $url)
-    {
-        // TODO: Log click
+    public function redirectAction(
+        Request $request,
+        Url $url,
+        ClickService $service,
+        EntityManagerInterface $em
+    ) {
+        $click = $service->registerClick($url, $request->getClientIp());
+        $em->persist($click);
+        $em->flush();
 
         return $this->redirect($url->getFull());
     }
